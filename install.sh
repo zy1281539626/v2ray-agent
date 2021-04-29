@@ -1669,7 +1669,7 @@ EOF
 {
   "inbounds":[
     {
-      "port": 443,
+      "port": 9527,
       "protocol": "vless",
       "tag":"VLESSTCP",
       "settings": {
@@ -1710,7 +1710,7 @@ EOF
 {
 "inbounds":[
 {
-  "port": 443,
+  "port": 9527,
   "protocol": "vless",
   "tag":"VLESSTCP",
   "settings": {
@@ -2002,7 +2002,7 @@ EOF
 {
 "inbounds":[
 {
-  "port": 443,
+  "port": 9527,
   "protocol": "vless",
   "tag":"VLESSTCP",
   "settings": {
@@ -2110,7 +2110,7 @@ defaultBase64Code() {
 		port=$(echo "${hostPort}" | awk -F "[:]" '{print $2}')
 	else
 		host=${hostPort}
-		port=443
+		port=9527
 	fi
 
 	local path=$5
@@ -2390,8 +2390,8 @@ addCorePort() {
 	echoContent skyBlue "\n功能 1/${totalProgress} : 添加新端口"
 	echoContent red "\n=============================================================="
 	echoContent yellow "# 注意事项\n"
-	echoContent yellow "不影响443端口的使用"
-	echoContent yellow "查看帐号时，只会展示默认端口443的帐号\n"
+	echoContent yellow "不影响9527端口的使用"
+	echoContent yellow "查看帐号时，只会展示默认端口9527的帐号\n"
 
 	echoContent yellow "1.添加端口"
 	echoContent yellow "2.删除端口"
@@ -2409,7 +2409,7 @@ addCorePort() {
       "protocol": "dokodemo-door",
       "settings": {
         "address": "127.0.0.1",
-        "port": 443,
+        "port": 9527,
         "network": "tcp",
         "followRedirect": false
       },
@@ -3055,7 +3055,7 @@ setDokodemoDoorUnblockNetflixOutbounds() {
       }
     },
     {
-      "tag": "netflix-443",
+      "tag": "netflix-9527",
       "protocol": "freedom",
       "settings": {
         "domainStrategy": "AsIs",
@@ -3081,12 +3081,12 @@ EOF
       },
       {
         "type": "field",
-        "port": 443,
+        "port": 9527,
         "domain": [
           "ip.sb",
           "geosite:netflix"
         ],
-        "outboundTag": "netflix-443"
+        "outboundTag": "netflix-9527"
       }
     ]
   }
@@ -3131,7 +3131,7 @@ setDokodemoDoorUnblockNetflixInbounds() {
       "protocol": "dokodemo-door",
       "settings": {
         "address": "0.0.0.0",
-        "port": 443,
+        "port": 9527,
         "network": "tcp",
         "followRedirect": false
       },
@@ -3141,7 +3141,7 @@ setDokodemoDoorUnblockNetflixInbounds() {
           "tls"
         ]
       },
-      "tag": "unblock-443"
+      "tag": "unblock-9527"
     }
   ]
 }
@@ -3156,7 +3156,7 @@ EOF
         "type": "field",
         "inboundTag": [
           "unblock-80",
-          "unblock-443"
+          "unblock-9527"
         ],
         "outboundTag": "direct"
       }
